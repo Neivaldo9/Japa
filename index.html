@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#160f36">
+  <meta name="description" content="Uma pequena história interativa feita especialmente para Japa.">
+  <title>Uma história chamada Japa ✨</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+  <div class="stars" aria-hidden="true" id="stars"></div>
+  <div class="glow glow-one" aria-hidden="true"></div>
+  <div class="glow glow-two" aria-hidden="true"></div>
+
+  <main class="app" id="app">
+    <button class="music-toggle" id="musicToggle" aria-pressed="false" aria-label="Ligar ou desligar a música">♫ ✕</button>
+    <div class="topline" id="secretTitle"><span>✿</span> MISSÃO SECRETA: JAPA <span>✿</span></div>
+    <div class="progress" aria-label="Progresso da história"><div id="progressFill"></div></div>
+
+    <section class="screen active" data-screen="0" aria-labelledby="welcome-title">
+      <div class="moon">☾</div>
+      <div class="book-icon" aria-hidden="true"><span>♡</span></div>
+      <p class="eyebrow">Jogadora selecionada: Japa</p>
+      <h1 id="welcome-title">Ei, Japa<span class="pink">...</span></h1>
+      <p class="lead">Foste selecionada para uma missão secreta. 🎮</p>
+      <p class="copy">Objetivo: descobrir quem teve a ideia de criar esta pequena história. Aviso: não vale pedir dicas nem dizer que ganhas antes de começar. 😂</p>
+      <p class="picker-title">♫ Escolhe a música para ler a história</p>
+      <div class="chips" id="musicPicker"></div>
+      <button class="primary" data-next>ACEITAR MISSÃO <span>✧</span></button>
+      <p class="tiny-note">Feito especialmente para ti ♡</p>
+    </section>
+
+    <section class="screen" data-screen="1" aria-labelledby="book-title">
+      <div class="ornament">❧ ✦ ❧</div>
+      <p class="eyebrow">Capítulo de abertura</p>
+      <div class="cover">
+        <div class="cover-inner">
+          <span class="cover-stars">✦　✧　✦</span>
+          <p class="cover-small">UMA HISTÓRIA</p>
+          <h2 id="book-title">chamada<br><em>Japa</em></h2>
+          <div class="cover-rule"></div>
+          <p class="cover-author">Autora: Japa</p>
+          <span class="cover-heart">♡</span>
+        </div>
+      </div>
+      <p class="copy">Um dia, numa conversa sobre livros, surgiu uma ideia diferente: e se a autora de uma história pudesse viver capítulos, colecionar flores e enfrentar algumas provocações pelo caminho?</p>
+      <button class="primary" data-next>Folhear o livro <span>→</span></button>
+    </section>
+
+    <section class="screen" data-screen="2" aria-labelledby="chapters-title">
+      <p class="eyebrow">Há mais para descobrir</p>
+      <h2 id="chapters-title">Escolhe uma flor</h2>
+      <p class="copy">Cada flor guarda um segredo. Toca nelas para descobrires uma mensagem. E sim, uma delas tem a ver com aquela tua confiança nos jogos. 👀</p>
+      <div class="chapter-stars">
+        <button class="star-button" data-secret="0"><span>✿</span><small>Segredo 1</small><b>Boa conversa</b></button>
+        <button class="star-button" data-secret="1"><span>✿</span><small>Segredo 2</small><b>Impostora?</b></button>
+        <button class="star-button" data-secret="2"><span>✿</span><small>Segredo 3</small><b>Rainha do lobby</b></button>
+      </div>
+      <div class="secret-box" id="secretBox" aria-live="polite">Escolhe uma flor para revelar uma mensagem ✨</div>
+      <button class="primary" data-next>Continuar a história <span>→</span></button>
+    </section>
+
+    <section class="screen paper-screen" data-screen="3" aria-labelledby="chapter-title">
+      <div class="paper">
+        <p class="paper-label">Capítulo 2 · Nova missão</p>
+        <h2 id="chapter-title">A nossa vibe 🎮</h2>
+        <div class="paper-line"></div>
+        <p>Free Fire, xadrez, Among Us… cada jogo tem a sua estratégia. Mas há uma coisa que ainda estou a tentar perceber: como é que alguém consegue dizer que me ganha com tanta confiança? 😂</p>
+        <p>Talvez um dia tenhamos de resolver isso numa melhor de três. Até lá, vou deixar a autora acreditar na sua própria lenda. 😌</p>
+        <blockquote>“Provocar o programador e continuar a sorrir como se nada tivesse acontecido.” <span>♡</span></blockquote>
+        <p class="paper-sign">— O programador (que ainda espera a desforra) ♟️</p>
+      </div>
+      <button class="primary" data-next>Virar a página <span>→</span></button>
+    </section>
+
+    <section class="screen" data-screen="4" aria-labelledby="proof-title">
+      <p class="eyebrow">Provas do crime</p>
+      <h2 id="proof-title">Quem ganhou o xadrez?</h2>
+      <figure class="polaroid" id="polaroid">
+        <img src="img\japa.jpg" alt="Foto do jogo de xadrez" onerror="this.parentNode.classList.add('empty')">
+        <figcaption>Xeque-mate. Fim de jogo. ♟️</figcaption>
+      </figure>
+      <div class="duel">
+        <button class="primary" data-proof="me">O programador 😎</button>
+        <button class="nope" data-proof="her">Eu, mas deixei-o ganhar 😌</button>
+      </div>
+      <div class="choice-result" id="proofResult" aria-live="polite"></div>
+      <button class="primary is-hidden" id="afterProof" data-next>Continuar <span>→</span></button>
+    </section>
+
+    <section class="screen" data-screen="5" aria-labelledby="choice-title">
+      <p class="eyebrow">A autora escolhe</p>
+      <h2 id="choice-title">E agora, Japa…</h2>
+      <p class="lead">Escolhe a próxima missão, autora. E pensa bem… esta escolha pode revelar a tua verdadeira estratégia. 👀</p>
+      <div class="choices">
+        <button class="choice" data-choice="fire"><span class="choice-icon">🔥</span><span><b>Free Fire: melhor de três</b><small>Prometo aceitar a vitória… se ela acontecer. 😂</small></span><span class="choice-arrow">↗</span></button>
+        <button class="choice" data-choice="chess"><span class="choice-icon">♟️</span><span><b>Xadrez: duelo de estratégia</b><small>Sem dizer “já ganhei” antes do xeque-mate.</small></span><span class="choice-arrow">↗</span></button>
+        <button class="choice" data-choice="among"><span class="choice-icon">🕵️</span><span><b>Among Us: quem é a impostora?</b><small>Suspeita principal: quem está a rir agora.</small></span><span class="choice-arrow">↗</span></button>
+      </div>
+      <div class="choice-result" id="choiceResult" aria-live="polite"></div>
+      <button class="primary is-hidden" id="choiceNext" data-next>Continuar</button>
+    </section>
+
+    <section class="screen cute-screen" data-screen="6" aria-labelledby="cute-title">
+      <div class="petals" aria-hidden="true"></div>
+      <div class="cute-orb" id="cuteIcon">🎮</div>
+      <p class="eyebrow">Missão escolhida</p>
+      <h2 id="cute-title">Boa escolha!</h2>
+      <p class="lead" id="cuteText"></p>
+      <div class="cute-card"><span>🌷</span><p id="cuteRule"></p></div>
+      <button class="primary" data-next>Continuar <span>♡</span></button>
+    </section>
+
+    <section class="screen challenge-screen" data-screen="7" aria-labelledby="challenge-title">
+      <div class="versus" aria-hidden="true">🎮</div>
+      <p class="eyebrow">Desafio final</p>
+      <h2 id="challenge-title">Tenho quase certeza que te ganho</h2>
+      <p class="lead">Em qualquer jogo, Japa. Free Fire, xadrez, Among Us… tu escolhes. Aceitas o desafio?</p>
+      <div class="duel" id="duel">
+        <button class="primary" id="yesBtn">Aceito o desafio 🔥</button>
+        <button class="nope" id="noBtn">Não aceito 🙄</button>
+      </div>
+      <div class="choice-result" id="duelResult" aria-live="polite"></div>
+      <button class="primary is-hidden" id="afterDuel" data-next>Uma última coisa… <span>♡</span></button>
+    </section>
+
+    <section class="screen letter-screen" data-screen="8" aria-labelledby="letter-title">
+      <p class="eyebrow">Sem provocações, só por um minuto</p>
+      <h2 id="letter-title">Uma carta para ti</h2>
+      <div class="letter">
+        <p>Japa,</p>
+        <p>Sei que ainda és um pouco reservada comigo, e acho isso muito normal. Confiança não se pede: constrói-se, com tempo e sem pressa.</p>
+        <p>Não quero conhecer só a Japa durona, a que nada abala. Quero conhecer a Japa inteira: as tuas histórias, o que te faz sorrir, o que te faz chorar de emoção, o bom e o menos bom.</p>
+        <p>Quero poder provocar-te sem te magoar e falar contigo sem medo de dizer algo errado. Acho-te fofa, engraçada e com um jeito de ser muito interessante.</p>
+        <p>Às vezes pergunto-me se sou eu o chato, porque parece que não consigo despertar a tua curiosidade. Mas acredito que isso se conquista.</p>
+        <p>Dizem que confiar é um risco. Talvez seja, mas é aí que está a graça: arriscar é o que torna um sentimento verdadeiro.</p>
+        <p>Por isso, deixa-me estar por perto, ser alguém em quem possas confiar, ouvir e falar sem medo. No teu tempo, Japa.</p>
+        <p class="paper-sign">— O programador (sim, do Barça 💜)</p>
+      </div>
+      <button class="primary" data-next>Continuar <span>♡</span></button>
+    </section>
+
+    <section class="screen final-screen" data-screen="9" aria-labelledby="final-title">
+      <div class="heart-orbit" aria-hidden="true"><span>♡</span><i>✦</i><i>✧</i><i>✦</i></div>
+      <p class="eyebrow">Último capítulo... por enquanto</p>
+      <h2 id="final-title">Para ti, Japa</h2>
+      <p class="lead">Obrigado por leres até aqui. 💜</p>
+      <p class="copy">Gosto da tua energia e das nossas provocações, e quero continuar a descobrir mais de ti, ao teu ritmo. A desforra do xadrez fica marcada para quando quiseres. 😌</p>
+      <div class="final-note">Responde só se e quando quiseres. Sem pressa, sem pressão.<br><strong>O próximo capítulo? Fica ao teu critério, Japa. ♡</strong></div>
+      <a class="primary wa" id="waLink" href="#" target="_blank" rel="noopener">Contar-me o que achaste 💬</a>
+      <button class="music-toggle" id="replay">↻ Recomeçar a história</button>
+      <p class="tiny-note">Feito com carinho. P.S.: continuo a achar que ganho. 😌</p>
+    </section>
+
+    <footer><span id="pageCount">1 / 10</span><span>JAPA <b>♡</b> STORY</span><span>✧</span></footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
